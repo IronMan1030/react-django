@@ -1,0 +1,56 @@
+.vendor-register {
+  padding-top: 120px;
+}
+.vendor-register h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+}
+.vendor-register h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2c4964;
+  position: relative;
+  padding-bottom: 10px;
+}
+.vendor-register h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c4964;
+}
+.vendor-register h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #2c4964;
+}
+.vendor-register h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  /* left: calc(50% - 60px); */
+}
+.vendor-register h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(5% - 14px);
+}
+
+.vendor-register .btn-company-register {
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 30px;
+}
+.vendor-register .banner > img {
+  object-fit: cover;
+  height: 430px;
+  width: 100%;
+}

@@ -1,0 +1,150 @@
+.vendor-section button {
+  background: #1977cc;
+  text-transform: uppercase;
+  padding: 8px 32px;
+  border-radius: 50px;
+}
+.vendor-section h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+}
+.vendor-section h2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #2c4964;
+  position: relative;
+  padding-bottom: 20px;
+}
+.vendor-section h2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: #ddd;
+  bottom: 1px;
+  left: calc(50% - 60px);
+}
+.vendor-section h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #1977cc;
+  bottom: 0;
+  left: calc(50% - 20px);
+}
+.vendor-section h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c4964;
+}
+.vendor-section h4 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #444444;
+}
+/* .vendor-section p {
+  font-size: 15px;
+  color: #848484;
+} */
+.vendor-section .banner {
+  /* background-image: url("/assets/banner.png"), linear-gradient(226deg, rgb(15, 114, 68) 48%, rgb(17, 97, 73) 100%); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  background-attachment: fixed;
+}
+.vendor-section .features {
+  width: 700px;
+  padding: 50px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  position: relative;
+  top: 130px;
+  left: 80px;
+}
+.vendor-section .features .btn-white {
+  background: rgb(255, 255, 255);
+}
+.vendor-section .banner .features > h1 {
+  color: white;
+}
+.vendor-section .banner .features > p {
+  color: white;
+}
+
+.vendor-section .step-section {
+  position: relative;
+  margin-top: -250px;
+  background: white;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+.vendor-section .video-row {
+  width: 92%;
+  margin: auto;
+}
+.vendor-section .keyBenefits-section .intro {
+  text-align: center;
+}
+.vendor-section .keyBenefits-section .item-pic {
+  width: 260px;
+}
+.vendor-section .highlight-section {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  padding: 40px;
+  background: #f7f7f7;
+  margin-bottom: 80px;
+}
+.vendor-section .newsletter-subscribe .newsletter-form {
+  margin-top: 30px;
+  background: #fff;
+  padding: 6px 10px;
+  position: relative;
+  border-radius: 50px;
+  text-align: left;
+  border: 1px solid #bfdcf7;
+
+  width: 450px;
+  margin: auto;
+}
+.vendor-section .newsletter-subscribe .newsletter-form > input {
+  border: 0;
+  padding: 4px 8px;
+  width: calc(100% - 100px);
+}
+.vendor-section .newsletter-subscribe .newsletter-form > input:focus {
+  outline: white;
+}
+
+.vendor-section .newsletter-subscribe .newsletter-form > button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 0 20px;
+  background: #1977cc;
+  color: #fff;
+  transition: 0.3s;
+  border-radius: 50px;
+}
+.vendor-section .brands {
+  text-align: center;
+  margin-top: 50px;
+}
+.vendor-section .brands > a > img {
+  display: inline-block;
+  margin: 10px 20px;
+}
+/* .vendor-section .keyBenefits-section .description {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+} */
