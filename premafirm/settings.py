@@ -93,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'premafirm',
         'USER': 'postgres',
-        'PASSWORD': 'admin',
+        'PASSWORD': 'Passw0rd',
         'HOST': 'localhost'
     }
 }
