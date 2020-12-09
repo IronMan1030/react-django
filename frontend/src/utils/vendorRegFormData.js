@@ -72,27 +72,27 @@ export const businessFields = [
     options: [
       {
         value: "1",
-        label: "0-100",
+        label: "0-10",
       },
       {
         value: "2",
-        label: "100-250",
+        label: "10-25",
       },
       {
         value: "3",
-        label: "250-500",
+        label: "25-50",
       },
       {
         value: "4",
-        label: "500-1000",
+        label: "50-100",
       },
       {
         value: "5",
-        label: "1000-2000",
+        label: "100-200",
       },
       {
         value: "6",
-        label: ">2000",
+        label: ">200",
       },
     ],
     isMulti: 0,
@@ -142,12 +142,53 @@ export const businessFields = [
       },
       {
         value: "2",
-        label: "Walmart",
+        label: "Ebay",
       },
       {
         value: "3",
-        label: "Home Depot",
+        label: "Walmart",
       },
+      {
+        value: "4",
+        label: "Shopify",
+      },
+      {
+        value: "5",
+        label: "WooCommerce",
+      },
+      {
+        value: "6",
+        label: "BigCommerce",
+      },
+      {
+        value: "7",
+        label: "Magento",
+      },
+      {
+        value: "8",
+        label: "Opencart",
+      },
+      {
+        value: "9",
+        label: "Zencart",
+      },
+      {
+        value: "10",
+        label: "PrestaShop",
+      },
+      {
+        value: "11",
+        label: "Newegg",
+      },
+      {
+        value: "12",
+        label: "BestBuy",
+      },
+      {
+        value: "13",
+        label: "Other",
+      },
+
     ],
     isMulti: 1,
   },
@@ -287,10 +328,6 @@ export const requireFields = [
         label: "Cell Phones (Wireless)",
       },
       {
-        value: "cell_phones",
-        label: "Cell Phones (Wireless)",
-      },      
-      {
         value: "clothing_and_accessories",
         label: "Clothing and Accessories",
       },      
@@ -336,7 +373,7 @@ export const requireFields = [
       },
       {
         value: "office_products",
-        label: "Office Products",
+        label: "Office & Stationary Products",
       },
       {
         value: "personal_computers",
@@ -377,7 +414,7 @@ export const requireFields = [
       {
         value: "other",
         label: "Other",
-      }
+      },
 
     ],
   },
