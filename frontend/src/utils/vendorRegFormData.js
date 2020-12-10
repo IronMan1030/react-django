@@ -72,27 +72,27 @@ export const businessFields = [
     options: [
       {
         value: "1",
-        label: "0-100",
+        label: "0-10",
       },
       {
         value: "2",
-        label: "100-250",
+        label: "10-25",
       },
       {
         value: "3",
-        label: "250-500",
+        label: "25-50",
       },
       {
         value: "4",
-        label: "500-1000",
+        label: "50-100",
       },
       {
         value: "5",
-        label: "1000-2000",
+        label: "100-200",
       },
       {
         value: "6",
-        label: ">2000",
+        label: ">200",
       },
     ],
     isMulti: 0,
@@ -142,11 +142,51 @@ export const businessFields = [
       },
       {
         value: "2",
-        label: "Walmart",
+        label: "Ebay",
       },
       {
         value: "3",
-        label: "Home Depot",
+        label: "Walmart",
+      },
+      {
+        value: "4",
+        label: "Shopify",
+      },
+      {
+        value: "5",
+        label: "WooCommerce",
+      },
+      {
+        value: "6",
+        label: "BigCommerce",
+      },
+      {
+        value: "7",
+        label: "Magento",
+      },
+      {
+        value: "8",
+        label: "Opencart",
+      },
+      {
+        value: "9",
+        label: "Zencart",
+      },
+      {
+        value: "10",
+        label: "PrestaShop",
+      },
+      {
+        value: "11",
+        label: "Newegg",
+      },
+      {
+        value: "12",
+        label: "BestBuy",
+      },
+      {
+        value: "13",
+        label: "Other",
       },
     ],
     isMulti: 1,
@@ -191,19 +231,35 @@ export const businessFields = [
   },
   {
     id: 6,
-    label: "How did you learn about Wayfair?",
+    label: "How did you learn about PremaFirm?",
     options: [
       {
         value: "1",
-        label: "Acticle or Blog",
+        label: "Search Engine",
       },
       {
         value: "2",
         label: "Linkedin",
       },
       {
-        value: "2",
-        label: "Search Engine",
+        value: "3",
+        label: "Word of mouth",
+      },
+      {
+        value: "4",
+        label: "Email",
+      },
+      {
+        value: "5",
+        label: "CFIB",
+      },
+      {
+        value: "6",
+        label: "EDC / BDC",
+      },
+      {
+        value: "7",
+        label: "Other",
       },
     ],
     isMulti: 0,
@@ -247,24 +303,116 @@ export const requireFields = [
     placeholder: "Select categories",
     categories: [
       {
-        value: "furniture",
-        label: "Furniture",
+        value: "automotive_parts_accessories",
+        label: "Automotive Parts & Accessories",
       },
       {
-        value: "outdoor",
-        label: "Outdoor",
+        value: "baby",
+        label: "Baby",
       },
       {
-        value: "bedBath",
-        label: "Bed & Bath",
+        value: "beauty",
+        label: "Beauty",
       },
       {
-        value: "kitchen",
-        label: "Kitchen",
+        value: "books",
+        label: "Books",
       },
       {
-        value: "pet",
-        label: "Pet",
+        value: "camera_photo",
+        label: "Camera & Photo",
+      },
+      {
+        value: "cell_phones",
+        label: "Cell Phones (Wireless)",
+      },
+      {
+        value: "clothing_and_accessories",
+        label: "Clothing and Accessories",
+      },
+      {
+        value: "consumer_electronics",
+        label: "Consumer Electronics",
+      },
+      {
+        value: "grocery_and_gourmet_food",
+        label: "Grocery & Gourmet Food",
+      },
+      {
+        value: "health_and_personal_care",
+        label: "Health & Personal Care",
+      },
+      {
+        value: "home_and_garden",
+        label: "Home & Garden",
+      },
+      {
+        value: "industrial_and_scientific",
+        label: "Industrial and Scientific",
+      },
+      {
+        value: "jewellery",
+        label: "Jewellery",
+      },
+      {
+        value: "large_appliances",
+        label: "Large Appliances",
+      },
+      {
+        value: "lawn_and_garden",
+        label: "Lawn & Garden",
+      },
+      {
+        value: "luggage_and_bags",
+        label: "Luggage & Bags",
+      },
+      {
+        value: "musical_instruments",
+        label: "Musical Instruments",
+      },
+      {
+        value: "office_products",
+        label: "Office & Stationary Products",
+      },
+      {
+        value: "personal_computers",
+        label: "Personal Computers",
+      },
+      {
+        value: "pet_supplies",
+        label: "Pet Supplies",
+      },
+      {
+        value: "shoes_and_handbags",
+        label: "Shoes & Handbags",
+      },
+      {
+        value: "software_and_video_games",
+        label: "Software & Video Games",
+      },
+      {
+        value: "sports_and_outdoors",
+        label: "Sports & Outdoors",
+      },
+      {
+        value: "tools_and_building_supplies",
+        label: "Tools & Building Supplies",
+      },
+      {
+        value: "toys_and_games",
+        label: "Toys & Games",
+      },
+      {
+        value: "video_and_dvd",
+        label: "Video & DVD",
+      },
+      {
+        value: "watches",
+        label: "Watches",
+      },
+      {
+        value: "other",
+        label: "Other",
       },
     ],
   },
@@ -287,12 +435,32 @@ export const requireFields = [
 
 export const businessMarket = [
   {
-    value: "ca",
-    label: "Canada",
+    value: "as",
+    label: "Asia",
   },
   {
-    value: "us",
-    label: "United States",
+    value: "eu",
+    label: "Europe",
+  },
+  {
+    value: "af",
+    label: "Africa",
+  },
+  {
+    value: "na",
+    label: "North America",
+  },
+  {
+    value: "sa",
+    label: "South America",
+  },
+  {
+    value: "an",
+    label: "Antarctia",
+  },
+  {
+    value: "oc",
+    label: "Oceania",
   },
 ];
 export const businessFulfillment = [
@@ -303,6 +471,14 @@ export const businessFulfillment = [
   {
     value: "us",
     label: "United States",
+  },
+  {
+    value: "mx",
+    label: "Mexico",
+  },
+  {
+    value: "gb",
+    label: "United Kingdom",
   },
 ];
 export const defaultOptions = [
@@ -322,14 +498,50 @@ export const roleOptions = [
   },
   {
     value: "2",
-    label: "Account Manager",
-  },
-  {
-    value: "3",
     label: "COO",
   },
   {
+    value: "3",
+    label: "Ecommerce Manager",
+  },
+  {
     value: "4",
+    label: "General Manager",
+  },
+  {
+    value: "5",
+    label: "Sales Rep",
+  },
+  {
+    value: "6",
+    label: "Operation Manager",
+  },
+  {
+    value: "7",
     label: "Customer Service Manager",
+  },
+  {
+    value: "8",
+    label: "Marketing Manager",
+  },
+  {
+    value: "9",
+    label: "Sales Manager",
+  },
+  {
+    value: "10",
+    label: "VP",
+  },
+  {
+    value: "11",
+    label: "Owner",
+  },
+  {
+    value: "12",
+    label: "President",
+  },
+  {
+    value: "13",
+    label: "Other",
   },
 ];
