@@ -3,9 +3,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HomePage from "./pages/HomePage";
+// import HomePage from "./pages/HomePage";
 import VendorReg from "./pages/V_Reg";
-import VendorPage from "./pages/VendorPage";
+import HomePage from "./pages/VendorPage";
+import ThankyouPage from "./pages/ThankyouPage";
+import LoginPage from "./pages/LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -15,8 +17,10 @@ function App() {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/vendor-register" component={VendorReg} />
-          <Route exact path="/vendor" component={VendorPage} />
+          <Route exact path="/home" component={HomePage} />
+          <Route exact path="/register" component={VendorReg} />
+          <Route exact path="/thankyou" component={ThankyouPage} />
+          <Route exact path="/login" component={LoginPage} />
           {/* <Route exact path="/register" component={RegisterPage} /> */}
           {/* <Route component={404Page} /> */}
         </Switch>

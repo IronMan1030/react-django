@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
@@ -14,9 +14,37 @@ import {
   roleOptions,
 } from "../../utils/vendorRegFormData";
 import axios from "axios";
+import Geocode from "react-geocode";
 
 function VendorReg() {
   const animatedComponents = makeAnimated();
+
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+      // Geocode.setApiKey("AIzaSyBptDAsJMkDkAfN6Z4poFTT7GcRrH6p_FU");
+      // Geocode.setLanguage("en");
+      // Geocode.setRegion("es");
+      // Geocode.fromLatLng("37.09024", "-95.712891").then(
+      //   (response) => {
+      //     const address = response.results[0].formatted_address;
+      //     console.log(address);
+      //   },
+      //   (error) => {
+      //     console.error(error);
+      //   }
+      // );
+    } else {
+      console.log("FAIL!!!");
+    }
+  }, []);
+  //Get longitude and latitude using google api
+  const showPosition = (position) => {
+    let latitude = position.coords.latitude;
+    console.log(latitude);
+    let Longitude = position.coords.longitude;
+    console.log(Longitude);
+  };
 
   // become a vendor
   const [firstName, setFirstName] = useState();
@@ -85,13 +113,14 @@ function VendorReg() {
       product_categories: productCate,
       accept_return: acceptReturn && acceptReturn.value,
     };
-    let vendorRegApiUrl = "http://127.0.0.1:8000/api/vendor-register/viewset/vendors/";
-    try {
-      let response = await axios.post(vendorRegApiUrl, vendorSaveData);
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
+    // let vendorRegApiUrl = "http://127.0.0.1:8000/api/vendor-register/viewset/vendors/";
+    // try {
+    //   let response = await axios.post(vendorRegApiUrl, vendorSaveData);
+    //   console.log(response.data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    window.location.href = "/thankyou";
   };
 
   const handleMainContactsChange = (value, id) => {
@@ -156,9 +185,6 @@ function VendorReg() {
   };
   return (
     <div className="vendor-register">
-      {/* <div className="banner mb-4">
-        <img className="img-fluid" src="images/banner.png" alt="img_v_reg_banner" />
-      </div> */}
       <div className="container">
         <div className="vendor-reg-content">
           <h2>Become a Vendor</h2>

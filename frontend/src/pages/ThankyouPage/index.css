@@ -1,0 +1,10 @@
+.thanks-section {
+  height: calc(100vh - 433px);
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.thanks-section h2 {
+  color: #2c4964;
+  font-weight: 700;
+}

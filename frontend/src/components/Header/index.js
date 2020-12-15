@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
@@ -30,27 +30,40 @@ function Header() {
           </div>
           <nav className="nav-menu float-right d-none d-lg-block">
             <ul>
-              <li className="active">
-                <Link to="/">Home</Link>
-              </li>
               <li>
-                <Link to="/">How It Works</Link>
+                <NavLink to="/home" activeClassName="active">
+                  Home
+                </NavLink>
               </li>
-              <li>
-                <Link to="/">About</Link>
+              {/* <li>
+                <NavLink to="/vendor" activeClassName="active">
+                  How It Works
+                </NavLink>
+              </li> */}
+              {/* <li>
+                <NavLink to="/" activeStyle={{ color: "red" }}>
+                  About
+                </NavLink>
               </li>
               <li className="drop-down">
-                <Link to="/">
+                <NavLink to="/" activeStyle={{ color: "red" }}>
                   FAQ <FontAwesomeIcon icon={faAngleDown} />
-                </Link>
+                </NavLink>
                 <ul>
                   <li>
-                    <Link to="/">Q & A</Link>
+                    <NavLink to="/">Q & A</NavLink>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link to="/">Contact Us</Link>
+                <NavLink to="/" activeStyle={{ color: "red" }}>
+                  Contact Us
+                </NavLink>
+              </li> */}
+              <li>
+                <NavLink to="/register" activeClassName="active">
+                  Login
+                </NavLink>
               </li>
             </ul>
           </nav>
