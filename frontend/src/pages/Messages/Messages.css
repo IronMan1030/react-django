@@ -1,0 +1,80 @@
+.msg-section {
+}
+.msg-section .msg-card {
+  border-radius: 5px;
+  margin-bottom: 15px;
+  border: none;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1);
+  box-shadow: 0px 0px 20px 0px rgba(44, 101, 144, 0.1);
+}
+.msg-section .msg-card .msg-card-body {
+  padding: 15px;
+}
+.email-list .email-btn-section {
+  margin: 0;
+  padding: 0;
+  flex-direction: column !important;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.email-list .email-btn-section .inbox {
+  display: flex;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  font-weight: 600;
+  color: #161f6a;
+  cursor: pointer;
+}
+.email-list .email-btn-section .active {
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  color: #00c58d;
+}
+.email-list .email-btn-section .inbox .inbox-body {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.email-list .email-btn-section p {
+  margin-top: revert;
+}
+.email-list .email-btn-section .inbox span {
+  width: 16px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.msg-section .styled-table-row {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  align-content: start;
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+.msg-section .styled-cell {
+  font-family: Lato, sans-serif;
+  font-weight: 400;
+  color: #161f6a !important;
+  align-self: center;
+  width: 100%;
+  padding: 6px;
+}
+.msg-section .h-icon {
+  background-color: #eeeeee;
+  border-radius: 4px;
+  color: #00c58d;
+  width: 36px;
+  height: 36px;
+  margin-top: -5px;
+  padding: 3px;
+}
+.msg-section .h-cell {
+  position: relative;
+  top: 10px;
+  color: #161f6a;
+}

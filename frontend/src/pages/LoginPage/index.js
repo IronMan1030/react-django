@@ -31,7 +31,7 @@ function Login() {
               </div>
             </div>
             <div className="d-flex justify-content-center mt-4 mb-5">
-              <button type="submit" class="btn btn-primary btn-submit">
+              <button type="submit" className="btn btn-primary btn-submit">
                 Log In
               </button>
             </div>
@@ -41,7 +41,7 @@ function Login() {
               <span className="line-center">New to Vendor?</span>
             </p>
             <div className="d-flex justify-content-center mt-5">
-              <button type="submit" class="btn btn-outline-primary btn-submit">
+              <button type="submit" className="btn btn-outline-primary btn-submit">
                 Sign Up
               </button>
             </div>

@@ -1,31 +1,25 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-// import HomePage from "./pages/HomePage";
-import VendorReg from "./pages/V_Reg";
-import HomePage from "./pages/VendorPage";
-import ThankyouPage from "./pages/ThankyouPage";
-import LoginPage from "./pages/LoginPage";
+import { Client as Styletron } from "styletron-engine-atomic";
+import { Provider as StyletronProvider } from "styletron-react";
+import { BaseProvider } from "baseui";
+import { theme } from "./theme";
+import "./theme/global.css";
+import Routes from "./routes";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const engine = new Styletron();
   return (
     <div>
-      <BrowserRouter>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/home" component={HomePage} />
-          <Route exact path="/register" component={VendorReg} />
-          <Route exact path="/thankyou" component={ThankyouPage} />
-          <Route exact path="/login" component={LoginPage} />
-          {/* <Route exact path="/register" component={RegisterPage} /> */}
-          {/* <Route component={404Page} /> */}
-        </Switch>
-      </BrowserRouter>
-      <Footer />
+      <StyletronProvider value={engine}>
+        <BaseProvider theme={theme}>
+          <BrowserRouter>
+            <Routes />
+          </BrowserRouter>
+        </BaseProvider>
+      </StyletronProvider>
     </div>
   );
 }
