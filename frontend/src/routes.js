@@ -12,13 +12,15 @@ import {
   ORDERS,
   SETTINGS,
   MESSAGES,
+  VENDOR_PROFILE,
 } from "./settings/constants";
 
 import { InLineLoader } from "./components/InlineLoader/InlineLoader";
 
 //Main page
 const HomePage = lazy(() => import("./pages/VendorPage"));
-const VendorReg = lazy(() => import("./pages/V_Reg"));
+const VendorProfile = lazy(() => import("./pages/V_Reg"));
+const VendorRegister = lazy(() => import("./pages/SignUpPage/SignUp"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
 const ThankyouPage = lazy(() => import("./pages/ThankyouPage"));
 
@@ -145,7 +147,7 @@ const Routes = () => {
         <PublicRoute exact={true} path={VENDOR_REGISTER}>
           <HomeLayout>
             <Suspense fallback={<InLineLoader />}>
-              <VendorReg />
+              <VendorRegister />
             </Suspense>
           </HomeLayout>
         </PublicRoute>
@@ -154,6 +156,14 @@ const Routes = () => {
           <HomeLayout>
             <Suspense fallback={<InLineLoader />}>
               <LoginPage />
+            </Suspense>
+          </HomeLayout>
+        </PublicRoute>
+
+        <PublicRoute exact={true} path={VENDOR_PROFILE}>
+          <HomeLayout>
+            <Suspense fallback={<InLineLoader />}>
+              <VendorProfile />
             </Suspense>
           </HomeLayout>
         </PublicRoute>

@@ -24,12 +24,12 @@ const sidebarMenus = [
     exact: false,
     icon: <ProductIcon />,
   },
-  {
-    name: "Category",
-    path: CATEGORY,
-    exact: false,
-    icon: <SidebarCategoryIcon />,
-  },
+  // {
+  //   name: "Category",
+  //   path: CATEGORY,
+  //   exact: false,
+  //   icon: <SidebarCategoryIcon />,
+  // },
   {
     name: "Orders",
     path: ORDERS,

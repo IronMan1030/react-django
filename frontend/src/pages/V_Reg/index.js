@@ -86,6 +86,7 @@ function VendorReg() {
       first_name: firstName,
       last_name: lastName,
       email: email,
+      password: "test",
       phone_number: phoneNumber,
       role: role,
       is_authorization: isAuthorization && isAuthorization.value,
@@ -113,14 +114,14 @@ function VendorReg() {
       product_categories: productCate,
       accept_return: acceptReturn && acceptReturn.value,
     };
-    // let vendorRegApiUrl = "http://127.0.0.1:8000/api/vendor-register/viewset/vendors/";
-    // try {
-    //   let response = await axios.post(vendorRegApiUrl, vendorSaveData);
-    //   console.log(response.data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    window.location.href = "/thankyou";
+    let vendorRegApiUrl = "http://127.0.0.1:8000/api/vendors/";
+    try {
+      let response = await axios.post(vendorRegApiUrl, vendorSaveData);
+      console.log(response.data);
+      // window.location.href = "/thankyou";
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleMainContactsChange = (value, id) => {

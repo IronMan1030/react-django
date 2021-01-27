@@ -23,3 +23,11 @@ body {
 button:focus {
   outline: unset !important;
 }
+.errors-section {
+  color: #ba3025;
+  font-size: 0.66rem;
+  margin-top: -12px;
+}
+.errors-outline {
+  border-color: #ba3025 !important;
+}

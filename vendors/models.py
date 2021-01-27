@@ -6,14 +6,14 @@ class Vendor(models.Model):
     # vendor info
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    email = models.CharField(max_length=100)
+    email = models.CharField(max_length=100) 
+    password = models.CharField(max_length=200)   
     phone_number = models.DecimalField(
         max_digits=15, decimal_places=0, default=None)
 
     role = models.JSONField(encoder=None)
     is_authorization = models.DecimalField(
         max_digits=1, decimal_places=0, default=0)
-
     # company background
     company_legal_name = models.CharField(max_length=100)
     website_url = models.CharField(max_length=100)
@@ -49,3 +49,5 @@ class Vendor(models.Model):
 
     def __str__(self):
         return self.email
+
+    

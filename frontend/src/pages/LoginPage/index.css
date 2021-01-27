@@ -33,7 +33,6 @@ p {
 .login-section .login-body {
   display: block;
   position: relative;
-  height: 550px;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
   width: 435px;
   margin: auto;

@@ -38,7 +38,7 @@ export default function Category() {
       // const idx = data && data.categories.map((current) => current.id);
       // setCheckedId(idx);
     } else {
-      setCheckedId([]);
+      setCheckedId([]);      
     }
     setChecked(event.target.checked);
   };

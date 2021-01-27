@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { HOMEPAGE, MAIN_PAGE, VENDOR_LOGIN, VENDOR_REGISTER } from "../../../../settings/constants";
 import "./index.css";
 
 function Header() {
@@ -31,20 +32,16 @@ function Header() {
           <nav className="nav-menu float-right d-none d-lg-block">
             <ul>
               <li>
-                <NavLink to="/home" activeClassName="active">
+                <NavLink to={MAIN_PAGE} activeClassName="active">
                   Home
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink to="/vendor" activeClassName="active">
-                  How It Works
-                </NavLink>
-              </li> */}
-              {/* <li>
-                <NavLink to="/" activeStyle={{ color: "red" }}>
-                  About
-                </NavLink>
+              <li>
+                <a href="https://premafirm.netlify.app/" target="_blank" rel="noreferrer">
+                  Become a Seller
+                </a>
               </li>
+              {/* 
               <li className="drop-down">
                 <NavLink to="/" activeStyle={{ color: "red" }}>
                   FAQ <FontAwesomeIcon icon={faAngleDown} />
@@ -55,14 +52,15 @@ function Header() {
                   </li>
                 </ul>
               </li>
+               */}
               <li>
-                <NavLink to="/" activeStyle={{ color: "red" }}>
-                  Contact Us
+                <NavLink to={VENDOR_LOGIN} activeClassName="active">
+                  Sign In
                 </NavLink>
-              </li> */}
+              </li>
               <li>
-                <NavLink to="/register" activeClassName="active">
-                  Login
+                <NavLink to={VENDOR_REGISTER} activeClassName="active">
+                  JOIN
                 </NavLink>
               </li>
             </ul>

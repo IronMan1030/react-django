@@ -1,9 +1,8 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { v4 as uuidv4 } from "uuid";
 import { Scrollbars } from "react-custom-scrollbars";
 import DrawerContext from "../../context/DrawerContext";
-import Uploader from "../../components/Uploader/Uploader";
 import Button, { KIND } from "../../components/Button/Button";
 import DrawerBox from "../../components/DrawerBox/DrawerBox";
 import Input from "../../components/Input/Input";
@@ -13,6 +12,8 @@ import { FormFields, FormLabel } from "../../components/FormFields/FormFields";
 
 import { Form, DrawerTitleWrapper, DrawerTitle, FieldDetails, ButtonGroup } from "../DrawerItems/DrawerItems.style";
 
+import VariantForm from "./VariantForm";
+import "./ProductForm.css";
 const options = [
   { value: "Fruits & Vegetables", name: "Fruits & Vegetables", id: "1" },
   { value: "Meat & Fish", name: "Meat & Fish", id: "2" },
@@ -40,11 +41,11 @@ const AddProduct = (props) => {
   const [type, setType] = useState([]);
   const [tag, setTag] = useState([]);
   const [description, setDescription] = useState("");
+  const [variants, setVariants] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     register({ name: "type" });
     register({ name: "categories" });
-    register({ name: "image", required: true });
     register({ name: "description" });
   }, [register]);
 
@@ -63,29 +64,45 @@ const AddProduct = (props) => {
     setValue("type", value);
     setType(value);
   };
-  const handleUploader = (files) => {
-    setValue("image", files[0].path);
+
+  const handleVariantRemove = (variantId) => {
+    let variantIndexArray = variants.filter((variant) => variant !== variantId);
+    console.log(variantIndexArray);
+    setVariants(variantIndexArray);
   };
+
+  const handleAddVariant = () => {
+    let getArrayMax = null;
+    if (variants.length) {
+      getArrayMax = Math.max.apply(null, variants);
+    } else {
+      getArrayMax = 0;
+    }
+    let variantIndex = getArrayMax + 1;
+    setVariants([...variants, variantIndex]);
+  };
+
   const onSubmit = (data) => {
-    const newProduct = {
-      id: uuidv4(),
-      name: data.name,
-      type: data.type[0].value,
-      description: data.description,
-      image: data.image && data.image.length !== 0 ? data.image : "",
-      price: Number(data.price),
-      unit: data.unit,
-      salePrice: Number(data.salePrice),
-      discountInPercent: Number(data.discountInPercent),
-      quantity: Number(data.quantity),
-      slug: data.name,
-      creation_date: new Date(),
-    };
-    console.log(newProduct, "newProduct data");
+    console.log(data);
+    // const newProduct = {
+    //   id: uuidv4(),
+    //   name: data.name,
+    //   type: data.type[0].value,
+    //   description: data.description,
+    //   image: data.image && data.image.length !== 0 ? data.image : "",
+    //   price: Number(data.price),
+    //   unit: data.unit,
+    //   salePrice: Number(data.salePrice),
+    //   discountInPercent: Number(data.discountInPercent),
+    //   quantity: Number(data.quantity),
+    //   slug: data.name,
+    //   creation_date: new Date(),
+    // };
+    // console.log(newProduct, "newProduct data");
     // createProduct({
     //   variables: { product: newProduct },
     // });
-    closeDrawer();
+    // closeDrawer();
   };
 
   return (
@@ -101,71 +118,20 @@ const AddProduct = (props) => {
           renderTrackHorizontal={(props) => <div {...props} style={{ display: "none" }} className="track-horizontal" />}
         >
           <div className="row">
-            <div className="col-lg-4">
-              <FieldDetails>Upload your Product image here</FieldDetails>
-            </div>
-            <div className="col-lg-8">
-              <DrawerBox
-                overrides={{
-                  Block: {
-                    style: {
-                      width: "100%",
-                      height: "auto",
-                      padding: "30px",
-                      borderRadius: "3px",
-                      backgroundColor: "#ffffff",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                    },
-                  },
-                }}
-              >
-                <Uploader onChange={handleUploader} />
-              </DrawerBox>
-            </div>
-          </div>
-
-          <div className="row">
-            <div className="col-lg-4">
+            <div className="col-lg-2">
               <FieldDetails>Add your Product description and necessary information from here</FieldDetails>
             </div>
 
-            <div className="col-lg-8">
+            <div className="col-lg-10">
               <DrawerBox>
                 <FormFields>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel>Title</FormLabel>
                   <Input inputRef={register({ required: true, maxLength: 20 })} name="name" />
                 </FormFields>
 
                 <FormFields>
                   <FormLabel>Description</FormLabel>
                   <Textarea value={description} onChange={handleDescriptionChange} />
-                </FormFields>
-
-                <FormFields>
-                  <FormLabel>Unit</FormLabel>
-                  <Input type="text" inputRef={register} name="unit" />
-                </FormFields>
-
-                <FormFields>
-                  <FormLabel>Price</FormLabel>
-                  <Input type="number" inputRef={register({ required: true })} name="price" />
-                </FormFields>
-
-                <FormFields>
-                  <FormLabel>Sale Price</FormLabel>
-                  <Input type="number" inputRef={register} name="salePrice" />
-                </FormFields>
-
-                <FormFields>
-                  <FormLabel>Discount In Percent</FormLabel>
-                  <Input type="number" inputRef={register} name="discountInPercent" />
-                </FormFields>
-
-                <FormFields>
-                  <FormLabel>Product Quantity</FormLabel>
-                  <Input type="number" inputRef={register({ required: true })} name="quantity" />
                 </FormFields>
 
                 <FormFields>
@@ -263,6 +229,35 @@ const AddProduct = (props) => {
                     multi
                   />
                 </FormFields>
+
+                {variants.map((variant) => (
+                  <VariantForm
+                    key={variant}
+                    variantIndex={variant}
+                    useRegister={register}
+                    useSetValue={setValue}
+                    handleVariantRemove={handleVariantRemove}
+                  />
+                ))}
+                <div className="d-flex justify-content-end mt-3">
+                  <Button
+                    type="button"
+                    onClick={handleAddVariant}
+                    overrides={{
+                      BaseButton: {
+                        style: ({ $theme }) => ({
+                          width: "20%",
+                          borderTopLeftRadius: "3px",
+                          borderTopRightRadius: "3px",
+                          borderBottomRightRadius: "3px",
+                          borderBottomLeftRadius: "3px",
+                        }),
+                      },
+                    }}
+                  >
+                    Add Variant
+                  </Button>
+                </div>
               </DrawerBox>
             </div>
           </div>

@@ -2,7 +2,8 @@
 // General Page Section
 export const HOMEPAGE = "/";
 export const MAIN_PAGE = "/home";
-export const VENDOR_REGISTER = "/register";
+export const VENDOR_REGISTER = "/signup";
+export const VENDOR_PROFILE = "/profile/register";
 export const VENDOR_LOGIN = "/login";
 export const THANKYOU_PAGE = "/thankyou";
 export const LOGOUT = "/logout";
