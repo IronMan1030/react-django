@@ -25,9 +25,11 @@
     "react-geocode": "^0.2.2",
     "react-hook-form": "^6.14.0",
     "react-image": "^4.0.3",
+    "react-media-library-daniel-daleva": "^3.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-select": "^3.1.1",
+    "react-switch": "^6.0.0",
     "styletron-engine-atomic": "^1.4.6",
     "styletron-react": "^5.2.7",
     "web-vitals": "^0.2.4"

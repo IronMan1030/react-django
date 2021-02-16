@@ -7,7 +7,7 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('vendors', VendorViewSet, basename="vendors")
-router.register('vendor/register', VendorRegisterViewSet, basename="vendor-register")
+router.register('vendor', VendorRegisterViewSet, basename="vendor-register")
 
 urlpatterns = [
     path('', include(router.urls)),

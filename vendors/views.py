@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from rest_framework.parsers import JSONParser
 
 from .models import Vendor
-from .serializers import VendorSerializer
+from .serializers import VendorSerializer,VendorRegisterSerializer
 
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
@@ -24,22 +24,30 @@ from rest_framework.filters import OrderingFilter, SearchFilter
 from django_filters import FilterSet
 from django_filters import rest_framework as filters
 
+from rest_framework.decorators import action
 
 class VendorViewSet(viewsets.ModelViewSet):
     serializer_class = VendorSerializer
     queryset = Vendor.objects.all()
 
 class VendorRegisterViewSet(viewsets.ModelViewSet):
-    serializer_class = VendorSerializer
+    serializer_class = VendorRegisterSerializer
     queryset = Vendor.objects.filter()
-    lookup_field = 'id'    
-    def retrieve(self, request, *args, **kwargs):
-        # id = kwargs.get('id', None)
-        vendor = Vendor.objects.get()
-        vendor_list = Vendor.objects.filter(email).distinct()
-        vendor_json = VendorSerializer(vendor_list, many=True)
-        return Response(vendor_json.data)
+    # lookup_field = 'id'    
+    # def retrieve(self, request, *args, **kwargs):
+    #     id = kwargs.get('id', None)                
+    #     # vendor = Vendor.objects.get(id=6)
+    #     vendor_list = Vendor.objects.filter(is_active=False, email="test@test1.com").distinct()
+    #     vendor_json = VendorSerializer(vendor_list, many=True)
+    #     return Response(vendor_json.data)
 
+    @action(detail=True, methods=['post'])
+    def register(self, request, pk=None):        
+        print(request.data)
+        # vendor = Vendor.objects.get(id=6)
+        # vendor_list = Vendor.objects.filter(is_active=False, email="test@test1.com").distinct()
+        # vendor_json = VendorSerializer(vendor_list, many=True)
+        return Response("vendor_json.data")
 # class GenericeAPIView(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin,
 #                       mixins.DestroyModelMixin):
 #     serializer_class = VendorSerializer

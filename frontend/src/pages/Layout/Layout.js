@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Topbar from "./Topbar/Topbar";
 import DrawerItems from "../DrawerItems/DrawerItems";
 import DrawerContext from "../../context/DrawerContext";
+import ProductContext from "../../context/ProductContext";
 import { LayoutWrapper, ContentWrapper, ContentInnerWrapper } from "./Layout.style";
 import { styled } from "baseui";
 import { useMedia } from "../../settings/use-media";
@@ -19,41 +20,43 @@ const AdminLayout = ({ children }) => {
   const desktop = useMedia("(min-width: 992px)");
   return (
     <DrawerContext.DrawerProvider>
-      <Topbar refs={topbarRef} />
-      <LayoutWrapper
-        style={{
-          height: `calc(100vh - ${height}px)`,
-        }}
-      >
-        {desktop ? (
-          <>
-            <SidedbarDesktop>
-              <Sidebar
-                refs={sidebarRef}
+      <ProductContext.ProductProvider>
+        <Topbar refs={topbarRef} />
+        <LayoutWrapper
+          style={{
+            height: `calc(100vh - ${height}px)`,
+          }}
+        >
+          {desktop ? (
+            <>
+              <SidedbarDesktop>
+                <Sidebar
+                  refs={sidebarRef}
+                  style={{
+                    height: `calc(100vh - ${height}px)`,
+                  }}
+                />
+              </SidedbarDesktop>
+              <ContentWrapper
                 style={{
-                  height: `calc(100vh - ${height}px)`,
+                  width: `calc(100% - ${width}px)`,
                 }}
-              />
-            </SidedbarDesktop>
+              >
+                <ContentInnerWrapper>{children}</ContentInnerWrapper>
+              </ContentWrapper>
+            </>
+          ) : (
             <ContentWrapper
               style={{
-                width: `calc(100% - ${width}px)`,
+                width: "100%",
               }}
             >
               <ContentInnerWrapper>{children}</ContentInnerWrapper>
             </ContentWrapper>
-          </>
-        ) : (
-          <ContentWrapper
-            style={{
-              width: "100%",
-            }}
-          >
-            <ContentInnerWrapper>{children}</ContentInnerWrapper>
-          </ContentWrapper>
-        )}
-        <DrawerItems />
-      </LayoutWrapper>
+          )}
+          <DrawerItems />
+        </LayoutWrapper>
+      </ProductContext.ProductProvider>
     </DrawerContext.DrawerProvider>
   );
 };

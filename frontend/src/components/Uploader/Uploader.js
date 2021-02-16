@@ -50,6 +50,10 @@ const Thumb = styled("div", ({ $theme }) => ({
   height: "100px",
   padding: "4px",
   boxSizing: "border-box",
+  // ":hover": {
+  //   background: "#000",
+  //   zIndex: 999,
+  // },
 }));
 
 const thumbInner = {
@@ -64,13 +68,33 @@ const img = {
   height: "100%",
 };
 
+const hoverDiv = {
+  position: "absolute",
+  zIndex: 11,
+  inset: "0px",
+  display: "flex",
+  flexFlow: "column wrap",
+  justifyContent: "center",
+  alignItems: "center",
+  width: "100px",
+  height: "100px",
+  opacity: 1,
+  background: "linear-gradient(rgba(33, 43, 54, 0.55), rgba(255, 255, 255, 0))",
+  borderRadius: "5px",
+  cursor: "pointer",
+  left: "61px",
+  top: "176px",
+};
 function Uploader({ onChange, imageURL }) {
-  const [files, setFiles] = useState(imageURL ? [{ name: "demo", preview: imageURL }] : []);
+  // const [files, setFiles] = useState(imageURL ? [{ name: "demo", preview: imageURL }] : []);
+  const [files, setFiles] = useState([]);
+  const [mediaFiles, setMediaFiles] = useState([]);
   const { getRootProps, getInputProps } = useDropzone({
     accept: "image/*",
-    multiple: false,
+    multiple: true,
     onDrop: useCallback(
       (acceptedFiles) => {
+        console.log(acceptedFiles);
         setFiles(
           acceptedFiles.map((file) =>
             Object.assign(file, {
@@ -84,21 +108,40 @@ function Uploader({ onChange, imageURL }) {
     ),
   });
 
-  const thumbs = files.map((file) => (
-    <Thumb key={file.name}>
-      <div style={thumbInner}>
-        <img src={file.preview} style={img} alt={file.name} />
-      </div>
-    </Thumb>
-  ));
+  const thumbs = mediaFiles.map((file, index) => {
+    return (
+      <Thumb key={index}>
+        {/* <div style={hoverDiv}></div> */}
+        <div style={thumbInner}>
+          <img src={file} style={img} />
+        </div>
+      </Thumb>
+    );
+  });
 
-  useEffect(
-    () => () => {
-      // Make sure to revoke the data uris to avoid memory leaks
-      files.forEach((file) => URL.revokeObjectURL(file.preview));
-    },
-    [files]
-  );
+  // useEffect(
+  //   () => () => {
+  //     // Make sure to revoke the data uris to avoid memory leaks
+  //     files.forEach((file) => URL.revokeObjectURL(file.preview));
+  //   },
+  //   [files]
+  // );
+
+  useEffect(() => {
+    let medias = [];
+    if (files.length) {
+      files.map((file) => {
+        const fileReaderInstance = new FileReader();
+        fileReaderInstance.readAsDataURL(file);
+        fileReaderInstance.onload = () => {
+          let base64data = fileReaderInstance.result;
+          medias.push(base64data);
+          setMediaFiles([...mediaFiles, ...medias]);
+        };
+      });
+    }
+    files.forEach((file) => URL.revokeObjectURL(file.preview));
+  }, [files]);
 
   return (
     <section className="container uploader">
@@ -110,6 +153,7 @@ function Uploader({ onChange, imageURL }) {
         </Text>
       </Container>
       {thumbs && <ThumbsContainer>{thumbs}</ThumbsContainer>}
+      {/* {thumbSingle && <ThumbsContainer>{thumbSingle}</ThumbsContainer>} */}
     </section>
   );
 }
